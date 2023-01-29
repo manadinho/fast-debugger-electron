@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FAST DEBUGGER</title>
+  </head>
+  <link rel="stylesheet" href="../../styles/custom-style.css" />
+  <link rel="stylesheet" href="../../styles/jsnview.css" />
+  <script src="../../scripts/jsnview.js"></script>
+  <script src="./renderer.js"></script>
+  <style>
+    .json-container{
+      background-color: #18171B;
+      font-weight: bold;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 10px;
+    }
+
+    .json-key{
+      color: #1299DA !important;
+    }
+    .json-size{
+      color: #FF8400 !important;
+    }
+    .json-separator{
+      color: #FF8400 !important;
+    }
+    .json-value{
+      color: #56DB3A !important;
+    }
+    .string-log-section{
+      background-color: #18171B;
+      color: #56DB3A ;
+      padding-left: 10px;
+      margin-top: 4px;
+      font-weight: bold;
+    }
+    .number-log-section{
+      background-color: #18171B;
+      color: #1299DA !important;
+      padding-left: 10px;
+      margin-top: 4px;
+      font-weight: bold;
+    }
+    .string-qouts{
+      color: #FF8400 !important;
+    }
+    .logo-section{
+      display: flex;
+      color: #fff;
+      align-items: center;
+    }
+    .logo-section span{
+      margin-left: 4px;
+      font-weight: bold;
+      font-size: 9px;
+      margin-top: 5px;
+    }
+    .logo-section img{
+      --tw-border-opacity: 1;
+      border-color: rgb(255 255 255 / var(--tw-border-opacity));
+      --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+      box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+    .log-div{
+      background: #18171B;
+      padding: 10px;
+    }
+  </style>
+  <body>
+    <h1>Hello from Fast Debugger 👋</h1>
+    <button id="clear-logs">Clear All Logs</button>
+    <div id="logs"></div>
+  </body>
+</html>

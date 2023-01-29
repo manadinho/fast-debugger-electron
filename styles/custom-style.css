@@ -1,0 +1,34 @@
+body{
+    background-color: #f4f4f5;
+}
+.log-div{
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 20px;
+    margin-top: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+
+}
+
+.first-log-child{
+    padding: 10px;
+}
+.first-log-child span{
+    border: solid 1px gray;
+    padding: 5px;
+    color: gray;
+}
+
+.second-log-child{
+    background: #fff;
+    padding: 10px;
+}
+.single-value{
+    color: #83ae42;
+}
+
+.file-path-text{
+    color: rgb(136, 135, 135);
+    font-size: 12px;
+}

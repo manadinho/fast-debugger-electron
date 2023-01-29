@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS LOGGER!</title>
+  </head>
+  <link rel="stylesheet" href="styles/custom-style.css" />
+  <link rel="stylesheet" href="styles/jsnview.css" />
+  <script src="scripts/jsnview.js"></script>
+  <style>
+    .json-container{
+      background-color: #18171B;
+      font-weight: bold;
+    }
+
+    .json-key{
+      color: #1299DA !important;
+    }
+    .json-size{
+      color: #FF8400 !important;
+    }
+    .json-separator{
+      color: #FF8400 !important;
+    }
+    .json-value{
+      color: #56DB3A !important;
+    }
+  </style>
+  <body>
+    <h1>Hello from JS Logger!</h1>
+    <p>👋</p>
+    <button id="clear-logs">Clear All Logs</button>
+    <div>"hello"</div>
+    <div class="tree"></div>
+
+    <script>
+      const jsnViewOptions = {
+          showLen: false,
+          showType: false,
+          showBrackets: true,
+          showFoldmarker: false,
+          colors: { boolean: '#ff2929', null: '#ff2929', string: '#690', number: '#905', float: '#002f99' }
+      }
+      const data = `{
+  "givenName": "Vas",
+  "surName": "Sudanagunta",
+  "children": [
+    {
+      "givenName": "Natalia", 
+      "age": 5
+    },
+    {
+      "givenName": "Aida",
+      "age": 17
+    }
+  ],
+  "address": {
+    "state": "NY",
+    "city": "Brooklyn",
+    "street": "718 Marcus Garvey Ave"
+  }
+}
+`;
+
+      // create json tree object
+      const tree = jsonview.create(data);
+
+      // render tree into dom element
+      jsonview.render(tree, document.querySelector('.tree'));
+    </script>
+  </body>
+</html>
