@@ -1,36 +1,23 @@
-const { app, BrowserWindow, ipcMain } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron');
+const Store = require('electron-store');
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 1030 });
 const path = require('path');
 
-const createWindow = () => {
-  const winOne = new BrowserWindow({
-    width: 800,
-    height: 600,
-    webPreferences:{
-        preload: path.join(__dirname, './views/logs/preload.js')
-    }
-  });
-  // const winTwo = new BrowserWindow({
-  //   width: 800,
-  //   height: 600,
-  //   webPreferences:{
-  //       preload: path.join(__dirname, './views/exceptions/preload.js')
-  //   }
-  // });
+const store = new Store({
+  name: 'fast-debugger'
+});
 
-  // winOne.webContents.openDevTools();
+let mainWindow;
+let SETTINGS = store.get('SETTINGS') || { PORT: 23518, EDITOR: 'VSCODE' };
+
+const createSocketServer = () => {
+  const wss = new WebSocket.Server({ port: SETTINGS.PORT });
 
   wss.on('connection', (ws) => {
     ws.on('message', (event) => {
         const message = event.toString('ascii');
-        winOne.webContents.send('log-event', message);
-        winOne.show();
-
-        // if(data.type === 'exception') {
-        //   winTwo.webContents.send('exception-event', message);
-        //   winTwo.show();
-        // }
+        mainWindow.webContents.send('log-event', message);
+        mainWindow.show();
         
     });
     ws.on('close', () => {
@@ -38,14 +25,41 @@ const createWindow = () => {
     });
   });
 
-  winOne.loadFile('views/logs/index.html')
-  // winTwo.loadFile('views/exceptions/index.html')
+}
+
+const createWindow = () => {
+    createSocketServer();
+    mainWindow = new BrowserWindow({
+    width: 1000,
+    height: 800,
+    icon: __dirname + '/images/logo.icns',
+    webPreferences:{
+        preload: path.join(__dirname, './views/logs/preload.js')
+    }
+  });
+
+  // open devtools
+  mainWindow.webContents.openDevTools();
+
+  // SEND SETTINGS TO VIEW
+  setTimeout(() => {
+    mainWindow.webContents.send('settings', SETTINGS);
+  }, 1000);
+
+  mainWindow.loadFile('views/logs/index.html')
 }
 
 app.whenReady().then(() => {
-  createWindow()
+  createWindow();
+})
+
+ipcMain.on('settings-update', (event, data) => {
+  SETTINGS = {...data};
+  store.set('SETTINGS', SETTINGS);
+  app.relaunch()
+app.exit()
 })
 
 app.on('window-all-closed', () => {
-    app.quit();
+  app.quit()
 })

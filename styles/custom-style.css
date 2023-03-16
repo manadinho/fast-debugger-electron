@@ -32,3 +32,183 @@ body{
     color: rgb(136, 135, 135);
     font-size: 12px;
 }
+
+body{
+    background: #1e293b;
+    color: #fff;
+    padding: 20px;
+  }
+  .json-container{
+    background-color: #18171B;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+  }
+
+  .json-key{
+    color: #1299DA !important;
+  }
+  .json-size{
+    color: #FF8400 !important;
+  }
+  .json-separator{
+    color: #FF8400 !important;
+  }
+  .json-value{
+    color: #56DB3A !important;
+  }
+  .string-log-section{
+    color: #56DB3A ;
+    padding-left: 10px;
+    margin-top: 4px;
+  }
+  .number-log-section{
+    color: #1299DA !important;
+    padding-left: 10px;
+    margin-top: 4px;
+  }
+  .string-qouts{
+    color: #FF8400 !important;
+  }
+  .logo-section{
+    display: flex;
+    color: #fff;
+    padding: 10px;
+  }
+  .log-section-left{
+    flex: 1;
+    display: flex;
+  }
+  .logo-section img{
+    --tw-border-opacity: 1;
+    border-color: rgb(255 255 255 / var(--tw-border-opacity));
+    --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+  .log-div{
+    background: #18171B;
+    padding: 10px;
+  }
+
+  .time-section{
+    border: solid 1px;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #fff;
+  }
+
+  .log-content{
+    margin-top: 7px;
+  }
+  .file-path{
+    color: gray;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-top: 30px;
+    text-decoration: underline;
+  }
+
+  .file-path:hover{
+    cursor: pointer;
+  }
+
+  .file-path:hover::after {
+    content: "Open in Editor";
+    margin-left: 5px;
+    padding: 2px 5px;
+    border-radius: 5px;
+    border: solid 1px #fff;
+    color: #fff;
+  }
+  .file-path-wrapper{
+    margin-top: 25px;
+  }
+
+  .flag{
+    color: #FF8400;
+    font-size: 10px;
+    border: solid 1px #FF8400;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-left: 15px;
+  }
+  ul{
+     list-style: none;
+  }
+
+  #logs{
+    margin-top: 90px;
+  }
+  #laravel-logs{
+    margin-top: 90px;
+  }
+
+  .debug-wrapper{
+    background-color: #18171B;
+    border-radius: 8px;
+    font:12px Menlo, Monaco, Consolas, monospace
+  }
+  .sf-dump{
+    z-index: 0 !important;
+  }
+  .logo{
+    padding: 0px 30px 8px 30px;
+    box-shadow: inset 0px 0px 11px -2px #2557d6;
+  }
+
+  .logo h3{
+    font-size: 30px;
+    color: #2557d6;
+    font-weight: bold;
+  }
+
+  .logo h4{
+    font-size: 13.5px;
+    color: #ffffff8f;
+    margin-top: -12px;
+  }
+  pre{
+    margin-top: 30px;
+  }
+  pre code p{
+    color: #56DB3A;
+    margin-top: -40px;
+  }
+
+  pre code span{
+    color: gray;      
+  }
+
+  .error-line{
+    font-weight: bold;
+    background-color: #b31104d9;
+    color: #fff;
+  }
+
+  .error-line:hover{
+    cursor: pointer;
+  }
+
+  .exception-detail{
+    margin-left: 10px;
+    color: #FF8400;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+  }
+  .exception-detail span{
+    color: #fff;
+  }
+
+  #settingsModal{
+    justify-content: center;
+    align-items: center;
+  }
+
+.jsontree_value-wrapper{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
